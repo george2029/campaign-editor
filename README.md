@@ -28,7 +28,36 @@ uvicorn app.main:app --reload
 
 Open http://localhost:8000.
 
-Tests (offer share math):
+## Database and migrations
+
+The app uses SQLite (`app.db` in the project folder) with SQLAlchemy models in `app/db.py`. The tables are created and changed only by [Alembic](https://alembic.sqlalchemy.org) migrations in `alembic/versions/`:
+
+| Migration                                  | What it does                        |
+| ------------------------------------------ | ----------------------------------- |
+| `a96a4cf33af0` campaigns and offer changes | tables `campaigns`, `offer_changes` |
+| `a3f3050d501e` flow offers                 | table `flow_offers`                 |
+
+Alembic takes the database URL from `DATABASE_URL` in `.env` (default `sqlite:///./app.db`), same as the app.
+
+```bash
+alembic upgrade head        # apply all migrations (run after every git pull)
+alembic current             # which migration the database is at
+alembic history             # list of migrations
+alembic downgrade -1        # undo the last migration
+```
+
+After changing a model in `app/db.py`, generate a new migration, check the file it creates, then apply it:
+
+```bash
+alembic revision --autogenerate -m "what changed"
+alembic upgrade head
+```
+
+To start over with an empty database: `rm app.db && alembic upgrade head`.
+
+## Tests
+
+Offer share math:
 
 ```bash
 pytest
