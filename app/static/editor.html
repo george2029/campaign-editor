@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Campaign editor</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <header>
+      <a href="/" class="logo">Keitaro campaign tool</a>
+    </header>
+
+    <main>
+      <p class="crumbs">
+        <a href="/">Campaigns</a> / <span id="campaign-name">…</span>
+      </p>
+
+      <div class="toolbar">
+        <button id="fetch">Fetch flows from KT</button>
+        <code id="campaign-url"></code>
+      </div>
+
+      <p id="page-error" class="error" hidden></p>
+      <div id="streams"></div>
+
+      <section class="card">
+        <h2>Change history</h2>
+        <div id="changes" class="muted">Nothing pushed yet</div>
+      </section>
+    </main>
+
+    <script src="/static/common.js"></script>
+    <script src="/static/editor.js"></script>
+  </body>
+</html>

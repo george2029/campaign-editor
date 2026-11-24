@@ -1,0 +1,305 @@
+:root {
+  --bg: #f5f6f8;
+  --card: #fff;
+  --text: #1d2430;
+  --muted: #6b7380;
+  --border: #e2e5ea;
+  --accent: #2f6fde;
+  --accent-text: #fff;
+  --pinned: #fff7e0;
+  --changed: #f2b632;
+  --error: #c62828;
+  --success: #2e7d32;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font:
+    14px/1.5 -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+header {
+  background: #1d2430;
+  padding: 12px 24px;
+}
+
+.logo {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+a {
+  color: var(--accent);
+}
+
+h2 {
+  margin: 0 0 16px;
+  font-size: 16px;
+}
+
+code {
+  font-size: 13px;
+  background: var(--bg);
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.stream.changed {
+  border-color: var(--changed);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.error {
+  color: var(--error);
+}
+
+.success {
+  color: var(--success);
+}
+
+/* Forms */
+
+form label {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  align-items: center;
+  gap: 4px 12px;
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+
+form small {
+  grid-column: 2;
+  color: var(--muted);
+  font-weight: normal;
+}
+
+form small.chosen {
+  color: var(--success);
+}
+
+input {
+  font: inherit;
+  padding: 7px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  width: 100%;
+}
+
+input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: -1px;
+}
+
+button {
+  font: inherit;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--card);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+button:hover {
+  border-color: var(--muted);
+}
+
+button.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-text);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+form button.primary {
+  margin-left: 92px;
+  padding: 8px 32px;
+}
+
+/* Offer search dropdown */
+
+.picker {
+  position: relative;
+}
+
+.picker-list {
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  margin: 2px 0 0;
+  padding: 4px 0;
+  list-style: none;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 10%);
+  max-height: 320px;
+  overflow-y: auto;
+  font-weight: normal;
+}
+
+.picker-list li {
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.picker-list li.active {
+  background: var(--bg);
+}
+
+.country {
+  margin-left: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.add-offer {
+  margin-top: 12px;
+}
+
+/* Tables */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+th {
+  font-weight: 500;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+tfoot td {
+  font-weight: 600;
+  border-bottom: none;
+}
+
+td.share {
+  white-space: nowrap;
+  width: 150px;
+}
+
+td.share input {
+  width: 64px;
+  text-align: right;
+  margin-right: 2px;
+}
+
+td.actions {
+  width: 110px;
+  text-align: right;
+}
+
+tr.pinned {
+  background: var(--pinned);
+}
+
+tr.removed td {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+tr.removed td.actions,
+tr.removed .was {
+  text-decoration: none;
+}
+
+.was {
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 12px;
+}
+
+button.pin {
+  padding: 2px 6px;
+  margin-left: 6px;
+  opacity: 0.35;
+  filter: grayscale(1);
+}
+
+button.pin.on {
+  opacity: 1;
+  filter: none;
+  border-color: var(--changed);
+}
+
+.badge {
+  display: inline-block;
+  font-size: 11px;
+  padding: 0 6px;
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--muted);
+  text-decoration: none;
+}
+
+/* Editor */
+
+.crumbs {
+  margin: 0 0 12px;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.draft-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  margin-bottom: 12px;
+  background: var(--pinned);
+  border-radius: 6px;
+}
+
+.draft-bar span {
+  margin-right: auto;
+  font-weight: 500;
+}

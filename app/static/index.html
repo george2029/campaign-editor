@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Campaigns</title>
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <header>
+      <a href="/" class="logo">Keitaro campaign tool</a>
+    </header>
+
+    <main>
+      <section class="card">
+        <h2>New campaign</h2>
+        <form id="create-form">
+          <label>
+            Name
+            <input name="name" placeholder="campaign name" required />
+          </label>
+          <label>
+            Geo
+            <input name="geo" placeholder="AU, MX, RO" required />
+            <small>Visitors from these countries are sent to Google</small>
+          </label>
+          <label>
+            Offer
+            <div class="picker">
+              <input
+                id="offer-search"
+                placeholder="search offers by id, name or country"
+                autocomplete="off"
+              />
+            </div>
+            <small id="offer-chosen">No offer chosen</small>
+          </label>
+          <button type="submit" class="primary">Create</button>
+        </form>
+        <div id="create-result"></div>
+      </section>
+
+      <section class="card">
+        <h2>Campaigns</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Link</th>
+              <th>Group</th>
+              <th>Created</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="campaigns"></tbody>
+        </table>
+      </section>
+    </main>
+
+    <script src="/static/common.js"></script>
+    <script src="/static/index.js"></script>
+  </body>
+</html>
